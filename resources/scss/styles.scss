@@ -1,0 +1,168 @@
+
+
+.search-icon {
+	left: 84px!important;
+}
+
+.icon-edit {
+	color: $main;
+}
+
+.icon-delete {
+	color: $danger;
+}
+
+.button-add, .paginate_button .active .page-link {
+	background-color: $main;
+	color: $white;
+	&:hover {
+		color: $white
+	}
+}
+
+.table {
+	thead {
+		background-color: $table-head-bg;
+		color: $white;
+	}
+	tbody tr:hover td {
+		background-color: $gray-400;
+		color: $table-hover-color;
+	}
+}
+
+.dataTables_wrapper {
+	overflow-x: auto;
+	background-color: $white;
+	padding: 1.5rem !important;
+}
+
+.tab-content {
+	.dataTables_wrapper {
+		padding: 0 !important;
+
+		table tr td{
+			padding: 3px;
+		}
+
+		.paginate_button  {
+			padding: 2px;
+		}
+	}
+}
+
+
+.btn-primary {
+	background-color: $main;
+	color: $white!important;
+}
+
+.ui-front {
+	z-index: 9999!important;
+}
+
+.dataTables_scrollHeadInner, table.dataTable {
+	width: 100%!important;
+}
+
+.dataTable tbody button.btn {
+	padding-top: 0;
+	padding-bottom: 0;
+}
+
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+a[data-tooltip]:hover::after {
+	content: attr(data-tooltip);
+	position: absolute;
+	bottom: 110%;
+	left: 0;
+	background-color: rgba(0,0,0,.7);
+	color: #fff;
+	padding: 15px;
+	font-size: 14px;
+	border-radius: 5px;
+	z-index: 4;
+}
+div[data-tooltip] {
+	position: relative;
+}
+div[data-tooltip]::after {
+	content: attr(data-tooltip);
+	position: absolute;
+	bottom: 0%;
+	left: 0;
+	background-color: rgba(0,0,0,.85);
+	color: #fff;
+	padding: 15px;
+	font-size: 14px;
+	border-radius: 5px;
+	z-index: 4;
+	width: 100%;
+	opacity: 0;
+	transition: opacity 0.2s ease-in-out;
+}
+  
+div[data-tooltip]:hover::after {
+	opacity: 1;
+}
+
+.icon-tooltip {
+	background-color: #333;
+	border-radius: 3px;
+	position: absolute;
+	right: 10px;
+	bottom: 0px;
+}
+
+/** Payments */
+.input-container {
+	position: relative;
+	display: inline-block;
+}
+
+.clear-input {
+	position: absolute;
+	top: 50%;
+	right: 0px;
+	transform: translateY(-54%);
+	cursor: pointer;
+}
+
+#table-payment-container {
+	height: 190px;
+	overflow-y: scroll;
+}
+
+.selected-client {
+	color: #ff9113;
+	padding-bottom: 10px;
+	margin-bottom: 0px;
+	font-size: 16px;
+	font-weight: bold;
+}
+
+.product-table-row {
+	cursor: pointer;
+	user-select: none;
+
+	td {
+		padding: 5px !important;
+	}
+}
+
+#pos-products-table {
+	table-layout: fixed;
+    width: 100%;
+	font-size: 13px;
+}
+
+.ticketInfo {
+	font-family:'Andale Mono Regular';
+	font-weight:normal;
+}

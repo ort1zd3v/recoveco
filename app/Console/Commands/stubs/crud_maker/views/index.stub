@@ -1,0 +1,9 @@
+@extends('crud-maker.layouts.index', [
+	'title' => __('{{ translations }}.title_index'), 
+	'entity' => '{{ routeResource }}', 
+	'form' => '{{ form }}',
+])
+
+@section('datatable')
+	{{ $dataTable->table(["width" => "100%"]) }}
+@endsection

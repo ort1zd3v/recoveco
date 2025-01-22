@@ -1,0 +1,42 @@
+<?php
+
+namespace App\DataTables;
+
+use App\Models\{{ modelName }};
+use Yajra\DataTables\Html\Button;
+use Yajra\DataTables\Html\Column;
+use Yajra\DataTables\Html\Editor\Editor;
+use Yajra\DataTables\Html\Editor\Fields;
+use Yajra\DataTables\Services\DataTable;
+
+class {{ datatableName }} extends BlankDataTable
+{
+	public function __construct()
+	{
+		$this->routeResource = '{{ routeResource }}';
+	}
+	/**
+	 * Get query source of dataTable.
+	 *
+	 * @param \App\Selling $model
+	 * @return \Illuminate\Database\Eloquent\Builder
+	 */
+	public function query({{ modelName }} $model)
+	{
+		{{ query }}
+	}
+
+	/**
+	 * Get columns.
+	 *
+	 * @return array
+	 */
+	protected function getColumns()
+	{
+		$pColumns = parent::getColumns();
+		$columns = [
+			{{ columns }}
+		];
+		return array_merge($columns, $pColumns);
+	}
+}

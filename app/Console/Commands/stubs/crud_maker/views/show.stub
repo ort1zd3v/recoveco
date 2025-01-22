@@ -1,0 +1,28 @@
+@extends('layouts.app', [
+	'title' => __('{{ translations }}.title_show'), 
+])
+
+@section('content')
+<div class="report-container p-3">
+	<div class="row">
+		<div class="col-sm-12 col-md-6 offset-md-3">
+			<br>
+			<div class="card card-info">
+				<div class="card-header">
+					<div class="row">
+						<div class="col-sm-12 col-md-6 card-title">@lang('{{ translations }}.title_show')</div>
+						<div class="col-sm-12 col-md-6 text-right">
+							<a href="{{ route('{{ routeResource }}.index') }}">
+								<i class="fas fa-long-arrow-alt-left"></i>
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class="card-body">
+					{{ content }}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+@endsection

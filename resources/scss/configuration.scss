@@ -1,0 +1,33 @@
+.previewConfiguration {
+	border: 1px solid rgb(41, 41, 41); 
+	width:594px; height:420px;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(15%, -50%);
+}
+
+@media only screen and (max-width: 992px) {
+	.previewConfiguration {
+		position: relative;
+		top: 0%;
+		left: 0%;
+		transform: translate(0%, 0%);
+	}
+}
+
+
+
+.columnPOS {
+	border-radius: 10px;
+	border: 5px solid white;
+}
+
+#calculator {
+	.number {
+		background-color: rgb(243, 243, 243);
+		border: 2px solid rgb(220, 220, 220);
+		border-radius: 5px;
+		color: black;
+	}
+}

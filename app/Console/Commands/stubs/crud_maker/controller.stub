@@ -1,0 +1,131 @@
+<?php
+
+namespace App\Http\Controllers;
+
+{{ modelImports }}
+use App\Http\Requests\{{ validatorName }};
+use App\DataTables\{{ datatableName }};
+use Illuminate\Http\Request;
+
+class {{ modelName }}Controller extends Controller
+{
+	/**
+	 * Display a listing of the resource.
+	 *
+	 * @return \Illuminate\Http\Response
+	 */
+	public function index()
+	{
+		//Consultar permiso para botón de agregar
+		$allowAdd = auth()->user()->hasPermissions("{{ permissions }}.create");
+		$allowEdit = auth()->user()->hasPermissions("{{ permissions }}.edit");
+		return (new {{ datatableName }}())->render('{{ templateDir }}.index', compact('allowAdd', 'allowEdit'));
+	}
+
+	/**
+	 * Show the form for creating a new resource.
+	 *
+	 * @return \Illuminate\Http\Response
+	 */
+	public function create()
+	{
+		{{ catalogs }}return view('{{ templateDir }}.create'{{ createParams }});
+	}
+
+	/**
+	 * Store a newly created resource in storage.
+	 *
+	 * @param  \Illuminate\Http\Request  $request
+	 * @return \Illuminate\Http\Response
+	 */
+	public function store({{ validatorName }} $request)
+	{
+		$status = true;
+		{{ modelInstace }} = null;
+		$params = array_merge($request->all(), [
+			'created_by' => auth()->id(),
+			'updated_by' => auth()->id(),
+			'created_at' => date("Y-m-d H:i:s"),
+			'updated_at' => date("Y-m-d H:i:s")
+		]);
+		try {
+			{{ modelInstace }} = {{ modelName }}::create($params);
+			$message = __('{{ translations }}.Successfully created');
+		} catch (\Illuminate\Database\QueryException $e) {
+			$status = false;
+			$message = $this->getErrorMessage($e, '{{ translations }}');
+		}
+		return $this->getResponse($status, $message, {{ modelInstace }});
+	}
+
+	/**
+	 * Display the specified resource.
+	 *
+	 * @param  \App\{{ modelName }}  {{ modelInstace }}
+	 * @return \Illuminate\Http\Response
+	 */
+	public function show({{ modelName }} {{ modelInstace }})
+	{
+		return view('{{ templateDir }}.show', compact('{{ compactedInstace }}'));
+	}
+
+	/**
+	 * Show the form for editing the specified resource.
+	 *
+	 * @param  \App\{{ modelName }}  {{ modelInstace }}
+	 * @return \Illuminate\Http\Response
+	 */
+	public function edit({{ modelName }} {{ modelInstace }})
+	{
+		{{ catalogs }}return view('{{ templateDir }}.edit'{{ editParams }});
+	}
+
+	/**
+	 * Update the specified resource in storage.
+	 *
+	 * @param  \Illuminate\Http\Request  $request
+	 * @param  \App\{{ modelName }}  {{ modelInstace }}
+	 * @return \Illuminate\Http\Response
+	 */
+	public function update({{ validatorName }} $request, {{ modelName }} {{ modelInstace }})
+	{
+		$status = true;
+		$params = array_merge($request->all(), [
+			'updated_by' => auth()->id(),
+			'updated_at' => date("Y-m-d H:i:s")
+		]);
+		try {
+			{{ modelInstace }}->update($params);
+			$message = __('{{ translations }}.Successfully updated');
+		} catch (\Illuminate\Database\QueryException $e) {
+			$status = false;
+			$message = $this->getErrorMessage($e, '{{ translations }}');
+		}
+		return $this->getResponse($status, $message, {{ modelInstace }});
+	}
+
+	/**
+	 * Remove the specified resource from storage.
+	 *
+	 * @param  \App\{{ modelName }}  {{ modelInstace }}
+	 * @return \Illuminate\Http\Response
+	 */
+	public function destroy({{ modelName }} {{ modelInstace }})
+	{
+		$status = true;
+		try {
+			{{ modelInstace }}->delete();
+			$message = __('{{ translations }}.Successfully deleted');
+		} catch (\Illuminate\Database\QueryException $e) {
+			$status = false;
+			$message = $this->getErrorMessage($e, '{{ translations }}');
+		}
+		return $this->getResponse($status, $message);
+	}
+
+	public function getQuickModalContent({{ modelName }} {{ modelInstace }} = null)
+	{
+		$params = request("params");
+		{{ catalogs }}return response()->json(view('crud-maker.components.modal-quickadd', compact('params', {{ paramsList }}))->render());
+	}
+}

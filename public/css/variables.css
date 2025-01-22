@@ -1,0 +1,178 @@
+:root{
+
+			/* GENERALES */
+			/* Header */
+			--general-header-background-color: #ffffff;
+			--general-header-font-color: #2b2b2b;
+			--general-header-font: 'Times New Roman', Times, serif;
+
+		
+			/* Menu */
+			--general-menu-background-color: #8a1224; 
+			--general-menu-font-color: #e8e8e8;
+			--general-menu-font: Arial, Helvetica, sans-serif;
+			--general-active-menu-font-color: #ffffff;
+			--general-menu-icons: inline-block;
+		
+			/* Body */
+			--general-body-background-color: #f0f0f0;
+			--general-body-font-color: #1c1c1c;
+			--general-body-font: Arial, Helvetica, sans-serif;
+
+			/* Footer */
+			--general-footer-background-color: #ffffff;
+			--general-footer-font-color: #474747;
+			--general-footer-font: 'Courier New', Courier, monospace;
+
+			/* DATATABLES */
+			/* Header */
+			--datatables-header-background-color: 138, 18, 36;
+			--datatables-header-font-color: #ffffff;
+			--datatables-header-hover-font-color: #ffffff;
+
+			/* Boton Add */
+			--datatables-add-background-color: #ae7351;
+			--datatables-add-font-color: #ffffff;
+
+			/* Boton Edit */
+			--datatables-edit-font-color: #42ae5d;
+
+			/* Boton Delete */
+			--datatables-delete-font-color: #f56b61;
+
+		}
+		
+		
+		/* General */
+
+
+		#logo{
+			background-image: url('../images/logos/PheIhnQGu4SBSGk6wSPf0WPMWRVI8dzKFNFz1irq.png') !important;
+			background-repeat: no-repeat !important;
+			background-position: center !important; /* Center the image */
+			background-size: contain  !important; /* Resize the background image to cover the entire container */
+			height: 80px;
+		}
+		
+		/* Header */
+		#page-topbar{
+			background-color: var(--general-header-background-color) !important;
+			color: var(--general-header-font-color);
+			font-family:  var(--general-header-font);
+
+		}
+		
+		/* Menu */
+		body[data-sidebar=dark] .vertical-menu,
+		body[data-sidebar=dark] .navbar-brand-box,
+		body[data-sidebar=dark].vertical-collpsed .vertical-menu #sidebar-menu > ul > li:hover > a,
+		body[data-sidebar=dark].vertical-collpsed .vertical-menu #sidebar-menu > ul ul {
+			background-color:  var(--general-menu-background-color) !important;
+			font-family:  var(--general-menu-font) !important;
+		}
+		
+		body[data-sidebar=dark] #sidebar-menu ul li ul.sub-menu li a,
+		body[data-sidebar=dark] #sidebar-menu ul li a i, 
+		body[data-sidebar=dark] #sidebar-menu ul li a
+		{
+			color: var(--general-menu-font-color) !important;
+		}
+
+		
+		/* Menu item active */
+		body[data-sidebar=dark] #sidebar-menu ul li ul.sub-menu li a:hover,
+		body[data-sidebar=dark] #sidebar-menu ul li a:hover i,
+		body[data-sidebar=dark] #sidebar-menu ul li a:hover,
+		body[data-sidebar=dark] .mm-active > a,
+		body[data-sidebar=dark] .mm-active > a i,
+		body[data-sidebar=dark] .mm-active .active,
+		body[data-sidebar=dark] .mm-active .active i
+		{
+			color: var(--general-active-menu-font-color) !important;
+		}
+
+		body[data-sidebar=dark] #sidebar-menu ul li a i {
+			display: var(--general-menu-icons);
+		}
+		
+		/* Body */
+		body{
+			background-color: var(--general-body-background-color);
+		}
+		
+		.page-content,
+		h1, h2 ,h3,
+		h4, h5, h6{
+			color: var(--general-body-font-color);
+			font-family:  var(--general-body-font);
+		}
+		
+		/* Footer */
+		.footer {
+			background-color: var(--general-footer-background-color);
+			color: var(--general-footer-font-color);
+			font-family:  var(--general-footer-font);
+		}
+		
+		/* DATATABLES */
+		.table thead {
+			background-color: rgb(var(--datatables-header-background-color)) !important;
+			color: var(--datatables-header-font-color) !important;
+		}
+
+		.table tbody tr:hover td {
+			background-color: rgba(var(--datatables-header-background-color), 0.5) !important;
+			color: var(--datatables-header-hover-font-color) !important;
+		}
+
+		.table tbody tr.odd {
+			background-color: rgba(var(--datatables-header-background-color), 0.20) !important;
+			color: var(--datatables-header-odd-font-color) !important;
+		}
+
+		.button-add, .paginate-button.active.page-link, .page-item.active .page-link {
+			background-color: var(--datatables-add-background-color) !important;
+			color: var(--datatables-add-font-color) !important;
+		}
+
+		.btn-primary {
+			background-color: var(--datatables-add-background-color) !important;
+			color: var(--datatables-add-font-color) !important;
+			border-color: var(--datatables-add-background-color) !important;
+		}
+
+		.icon-edit{
+			color: var(--datatables-edit-font-color);
+		}
+
+		.icon-delete{
+			color: var(--datatables-delete-font-color);
+		}
+
+		.dt-button-collection .buttons-columnVisibility.active{
+			background-color: rgba(var(--datatables-header-background-color), 0.50) !important;
+			color: var(--datatables-header-font-color) !important;
+		}
+
+		.nav-tabs .nav-link {
+			border: 1px solid #8080803d !important;
+		}
+
+		.nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
+			color: var(--datatables-header-font-color) !important;
+			background-color: rgb(var(--datatables-header-background-color)) !important;
+		}
+
+		.swal2-styled.swal2-confirm {
+			background-color: var(--datatables-add-background-color) !important;
+			color: var(--datatables-add-font-color) !important;
+			padding: 30px;
+		}
+		.swal2-styled.swal2-confirm:focus {
+			box-shadow: 0 0 0 3px rgba(var(--datatables-header-background-color), 0.5) !important;
+		}
+
+		.table.dataTable.dtr-inline.collapsed > tbody > tr > td.dtr-control:before, table.dataTable.dtr-inline.collapsed > tbody > tr > td.dtr-control:before {
+			background-color: var(--datatables-add-background-color) !important;
+		}
+		
